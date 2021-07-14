@@ -1,0 +1,19 @@
+<h1 style="margin-left: 40%;"> Please Sign In first </h1>
+
+<div class="form-container">
+    <mat-card>
+        <form (submit)="login()">
+            <mat-form-field>
+                <input [(ngModel)]="userName" name="userName" matInput placeholder="Please enter user name" required>
+            </mat-form-field>
+            <mat-form-field>
+                <input type="password" [(ngModel)]="password" name="password" matInput
+                    placeholder="Please enter password" required>
+            </mat-form-field>
+            <button mat-raised-button color="primary" [disabled]="loading || !userName || !password">
+                <span *ngIf="!loading">Sign In</span>
+                <span *ngIf="loading">Loading... <i class="fa fa-spin fa-spinner"></i></span>
+            </button>
+        </form>
+    </mat-card>
+</div>

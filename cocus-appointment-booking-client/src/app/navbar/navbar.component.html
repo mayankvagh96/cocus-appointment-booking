@@ -1,0 +1,16 @@
+<mat-toolbar color="primary" class="mat-elevation-z8">
+    <span>
+        <mat-icon>book_online</mat-icon> Appointment Booking System
+    </span>
+    <div class="spacer"></div>
+    <a mat-raised-button *ngIf="!this.cookieService.get('authToken')" routerLink="login" color="accent"
+        class="hover-class">Sign In</a>
+    <a mat-button *ngIf="this.cookieService.get('authToken')" routerLink="create-appointment" class="hover-class">Create
+        Appointment</a>
+    <a mat-button *ngIf="this.cookieService.get('authToken')" routerLink="appointment-list" class="hover-class">List
+        Appointments</a>
+    <a mat-button *ngIf="this.cookieService.get('authToken')" routerLink="appointment-calendar"
+        class="hover-class">Calendar</a>
+    <a mat-raised-button *ngIf="this.cookieService.get('authToken')" (click)="logout()" color="accent"
+        class="hover-class">Logout</a>
+</mat-toolbar>

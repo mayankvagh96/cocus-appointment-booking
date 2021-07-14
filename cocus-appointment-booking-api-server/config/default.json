@@ -1,0 +1,24 @@
+{
+  "serverConfig": {
+    "port": 3001,
+    "host": "localhost"
+  },
+  "userCredentials": [
+    {
+      "username": "CocusCeo",
+      "password": "$2b$15$FqXTJAwTYR3J/hbc/dm22ugbuHcBwZSGzCOyhNPdqMo0e8bHNvtIm"
+    }
+  ],
+  "databaseConnection": {
+    "dbUri": "mongodb://localhost:27017/appointment-booking"
+  },
+  "tokenConfiguration": {
+    "saltWorkFactor": 15,
+    "accessTokenTtl": "15m"
+  },
+  "emailConnections": {
+    "domain": "sandbox2b7cbaed29644fcab39a38dc12b412f8.mailgun.org",
+    "apiKey": "49ef5454f1cf568c61829e6154809078-c4d287b4-035f0009",
+    "from": "Cocus CEO <postmaster@sandbox2b7cbaed29644fcab39a38dc12b412f8.mailgun.org>"
+  }
+}

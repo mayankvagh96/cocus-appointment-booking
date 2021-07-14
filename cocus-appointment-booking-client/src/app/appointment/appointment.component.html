@@ -1,0 +1,104 @@
+<h1 style="margin-left: 39%;">{{header}} </h1>
+
+<div class="form-container">
+    <mat-card>
+        <!-- <form (submit)="submitAppointment()">
+            <mat-form-field>
+                <input [(ngModel)]="subject" name="subject" matInput placeholder="Please enter appointment subject">
+            </mat-form-field>
+            <mat-form-field>
+                <input [(ngModel)]="description" name="description" matInput
+                    placeholder="Please enter appointment  description">
+            </mat-form-field>
+            <mat-form-field>
+                <input [(ngModel)]="participants" name="participants" matInput
+                    placeholder="Please enter appointment participants" matTooltip="Enter multiple email id by using ;">
+            </mat-form-field>
+            <mat-form-field>
+                <input [(ngModel)]="appointmentDate" name="appointmentDate" matInput [matDatepicker]="picker"
+                    placeholder="Choose a date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+                <input [(ngModel)]="appointmentTime" name="appointmentTime" type="time" matInput
+                    placeholder="Choose a time">
+            </mat-form-field>
+            <mat-form-field>
+                <input [(ngModel)]="appointmentPlace" name="appointmentPlace" matInput
+                    placeholder="Please enter appointment place">
+            </mat-form-field>
+            <button mat-raised-button color="primary">{{header}}</button>
+        </form> -->
+
+        <form [formGroup]="appointmentForm" novalidate>
+
+            <mat-form-field>
+                <input formControlName="subject" type="text" matInput placeholder="Enter Subject">
+            </mat-form-field>
+            <div *ngIf="appointmentForm.controls['subject'].invalid && (appointmentForm.controls['subject'].dirty || appointmentForm.controls['subject'].touched)"
+                class="alert alert-danger">
+                <div *ngIf="appointmentForm.controls['subject'].errors.required">
+                    Subject is required.
+                </div>
+            </div>
+
+            <mat-form-field>
+                <input formControlName="description" type="text" matInput placeholder="Enter description">
+            </mat-form-field>
+            <div *ngIf="appointmentForm.controls['description'].invalid && (appointmentForm.controls['description'].dirty || appointmentForm.controls['description'].touched)"
+                class="alert alert-danger">
+                <div *ngIf="appointmentForm.controls['description'].errors.required">
+                    Description is required.
+                </div>
+            </div>
+
+            <mat-form-field>
+                <input formControlName="participants" type="text" matInput placeholder="Enter participants">
+            </mat-form-field>
+            <div *ngIf="appointmentForm.controls['participants'].invalid && (appointmentForm.controls['participants'].dirty || appointmentForm.controls['participants'].touched)"
+                class="alert alert-danger">
+                <div *ngIf="appointmentForm.controls['participants'].errors.required">
+                    Participants is required.
+                </div>
+            </div>
+
+            <mat-form-field>
+                <input formControlName="appointmentDate" matInput [matDatepicker]="picker" placeholder="Choose a date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <div *ngIf="appointmentForm.controls['appointmentDate'].invalid && (appointmentForm.controls['appointmentDate'].dirty || appointmentForm.controls['appointmentDate'].touched)"
+                class="alert alert-danger">
+                <div *ngIf="appointmentForm.controls['appointmentDate'].errors.required">
+                    Appointment date is required.
+                </div>
+            </div>
+
+            <mat-form-field>
+                <input formControlName="appointmentTime" type="time" matInput placeholder="Choose a time">
+            </mat-form-field>
+            <div *ngIf="appointmentForm.controls['appointmentTime'].invalid && (appointmentForm.controls['appointmentTime'].dirty || appointmentForm.controls['appointmentTime'].touched)"
+                class="alert alert-danger">
+                <div *ngIf="appointmentForm.controls['appointmentTime'].errors.required">
+                    Appointment time is required.
+                </div>
+            </div>
+
+            <mat-form-field>
+                <input formControlName="appointmentPlace" type="text" matInput placeholder="Enter place">
+            </mat-form-field>
+            <div *ngIf="appointmentForm.controls['appointmentPlace'].invalid && (appointmentForm.controls['appointmentPlace'].dirty || appointmentForm.controls['appointmentPlace'].touched)"
+                class="alert alert-danger">
+                <div *ngIf="appointmentForm.controls['appointmentPlace'].errors.required">
+                    Place is required.
+                </div>
+            </div>
+            
+            <button mat-raised-button color="primary" (click)="submitAppointment()"
+                [disabled]="!appointmentForm.valid">{{header}}</button>
+
+        </form>
+
+    </mat-card>
+</div>
