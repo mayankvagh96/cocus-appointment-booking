@@ -7,6 +7,6 @@ const log = logger({
     pid: false,
   },
   timestamp: () => `,"time":"${dayjs().format()}"`
-}, logger.destination("./app.log"));
+}, logger.destination("./cocus-appointment-booking-api-server.log"));
 
 export default log;
