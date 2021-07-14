@@ -1,0 +1,205 @@
+{
+	"info": {
+		"_postman_id": "7b6fd90d-0b22-4d29-bb35-b9a4563cc4cb",
+		"name": "COCUS Appointment System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"CocusCeo\",\r\n    \"password\": \"CocusCeo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate Encrypted Password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjYxOTI5NjIsImV4cCI6MTYyNjE5Mzg2Mn0.8Ye8pzDDdJVA9fVbUEOi_JDVBcH1Vv2b9YifVXg2Pog",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/api/generatePassword",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"generatePassword"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Appointments List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjYxOTM5ODQsImV4cCI6MTYyNjE5NDg4NH0.hd6fdg_EbE3AKsf0iAzNAJlNCePINYu5DOMZV0EPfd8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"subject\": \"HolidayInn\",\r\n    \"description\": \"ABC\",\r\n    \"participants\": \"XYZ\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/appointment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"appointment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Appointment by Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjYxOTI5NjIsImV4cCI6MTYyNjE5Mzg2Mn0.8Ye8pzDDdJVA9fVbUEOi_JDVBcH1Vv2b9YifVXg2Pog",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3001/api/appointment/60ec3a4db99eea460cb1b3b8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"appointment",
+						"60ec3a4db99eea460cb1b3b8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Appointment by Date",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjYxOTM5ODQsImV4cCI6MTYyNjE5NDg4NH0.hd6fdg_EbE3AKsf0iAzNAJlNCePINYu5DOMZV0EPfd8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3001/api/appointment/?startDate=Wed%20Jul%2021%202021%2000:00:00%20GMT+0530%20(India%20Standard%20Time)",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"appointment",
+						""
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "Wed%20Jul%2021%202021%2000:00:00%20GMT+0530%20(India%20Standard%20Time)"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Appointment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MjYxOTQ0NTQsImV4cCI6MTYyNjE5NTM1NH0.WbfOTPie0mfpPXValftcdlIVBFkvh2iOQ3Xo5AAMI7A",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"subject\": \"TeamMeet\",\r\n    \"description\": \"Meet\",\r\n    \"participants\": \"mayank.vagh@gmail.com\",\r\n    \"appointmentDate\": \"Thu Jul 15 2021 22:05:00 GMT+0530 (India Standard Time)\",\r\n    \"appointmentPlace\": \"Surat\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/appointment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"appointment"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
